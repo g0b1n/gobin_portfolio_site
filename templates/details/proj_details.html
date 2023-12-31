@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Project Details{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+ 
+        <div class="mt-5">
+            <h2 class="text-white">{{ project_details.proj_name }}</h2>
+            <div>
+                <p class="subtitle text-muted">{{ project_details.proj_start_date }} - {{ project_details.proj_end_date }}</p>
+            </div>
+            {% if project_details.github_url %}
+                <a href="{{ project_details.github_url }}" class="github_btn" target="_blank">GitHub</a>
+            {% endif %}
+            <hr class="bg-primary my-4">
+                <div>
+                    <p class="mt-3 proj_title">Overview</p>
+                    <p class="proj_para">{{ project_details.proj_long_desc }}</p>
+                    <hr class="bg-primary my-4">
+                </div>
+
+                <div>
+                    <p class="mt-3 proj_title">Process</p>
+                    <p class="proj_para">{{ project_details.proj_process }}</p>
+                    <hr class="bg-primary my-4">
+                </div>
+                <div>
+                    <p class="mt-3 proj_title">Challenge</p>
+                    <p class="proj_para">{{ project_details.proj_challenge }}</p>
+                    <hr class="bg-primary my-4">
+                </div>
+                <div class="mb-5">
+                    <p class="mt-3 proj_title">Solution</p>
+                    <p class="proj_para">{{ project_details.proj_solution }}</p>
+                </div>  
+        </div>
+        
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Project Details{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card bg-primary mb-3" style="max-width: 100%">
+        <div class="card-body">
+            <div class="row">
+                <div>
+                    <h2 class="text-white justify-center">{{ photo_details.client_name }}</h2>
+                    <div>
+                        <p class="text-white"><b class="text-secondary mr-2">Photo taken:</b> {{ photo_details.pic_event_date }}</p>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+    
+</div>
+<div class="container">
+    <div class="text-center">
+        <img src="{{ url_for('static', filename=photo_details.pic_img_url) }}"
+        style="width: 75%; height: auto;"
+        class="card-img-top justify-center" alt="{{ photo_details.client_name }}">
+    </div>
+</div>
+
+{% endblock %}

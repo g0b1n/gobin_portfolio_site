@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="mt-5">
+        <p class="my_title_txt"><span class="pipe">|</span>Projects</p>
+        <div class="row my-5">
+            {% for project in projects %}
+            <div class="col-md-4 mb-3">
+                <div class="card project-size">
+                    
+                    <a href="{{ url_for('project_details', project_id=project.id) }}">
+                        <img src="{{ url_for('static', filename=project.proj_img_url) }}" class="card-img-top" alt="{{ project.proj_name }}">
+                    </a>
+                    
+
+                    <div class="card-body">
+                        <h3 class="card-title">{{ project.proj_name }}</h3>
+                        <p class="card-text">{{ project.proj_short_desc }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

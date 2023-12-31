@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Education{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="mt-5">
+        <p class="my_title_txt"><span class="pipe">|</span>Educations</p>
+        {% for school in schools %}
+    
+                <div class="mt-5">
+                    <h4 class="my_work_title">
+                        <p>{{ school.school_name }}</p>
+                    </h4>
+                    
+                    <p class="card-subtitle work_address">{{ school.school_city }}, {{ school.school_state }}</p>
+
+                    <p class="text-white"><b class="work_desc_date mr-2">Date:</b> {{ school.school_start_date }} - {{ school.school_end_date }}</p>
+                    
+                    {% if school.major_name %}
+                    <p class="text-white"><b class="work_desc mr-2">Major:</b> {{ school.major_name }}</p>
+                    {% else %}
+                    <p class="text-danger"><b class="work_desc mr-2">Major:</b> None</p>
+                    {% endif %}
+
+                    {% if school.degree %}
+                    <p class="text-white"><b class="work_desc mr-2">Degree:</b> {{ school.degree }}</p>
+                    {% else %}
+                    <p class="text-danger"><b class="work_desc mr-2">Degree:</b> None</p>
+                    {% endif %}
+                </div>
+            
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock %}

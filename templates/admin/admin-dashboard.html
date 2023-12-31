@@ -1,0 +1,167 @@
+{% extends 'admin/admin_base.html' %}
+{% block title %}Govinda Dahal{% endblock %}
+{% block content %}
+
+
+<div class="container mt-3">
+    <h3 class="text-muted mb-2">Projects</h3>
+    <table class="table table-dark">
+        <thead class="thead bg-primary">
+            <th>Project Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.proj_name }}</td>
+                <td>{{ project.proj_short_desc }}</td>
+                <td>{{ project.proj_start_date }} - {{ project.proj_end_date }}</td>
+                <td>
+                    
+                    {% if project.github_url %}
+                        <a href="{{ project.github_url }}" class="btn btn-outline-info" target="_blank" style="display: inline;">GitHub</a>
+                    {% endif %}
+
+                    <a class="btn btn-sm btn-info ml-1" href="{{ url_for('edit_project', id=project.id)}}">Edit</a>
+                    <form action="{{ url_for('delete_project', project_id=project.id) }}" method="POST" style="display: inline;">
+                        <button class="btn btn-sm btn-outline-danger ml-1" type="submit">Delete</button>
+                    </form>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   
+</div>
+
+<div class="container">
+    <a href="/projects/add" class="btn btn-primary m-3">Add Projects</a>
+    <hr class="bg-primary my-4">
+</div>
+
+
+<!-- Photography -->
+<div class="container mt-3">
+    <h3 class="text-muted mb-2">Photography</h3>
+    <table class="table table-dark">
+        <thead class="thead bg-primary">
+            <th>Client Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for photo in photos %}
+            <tr>
+                <td>{{ photo.client_name }}</td>
+                <td>{{ photo.pic_short_desc }}</td>
+                <td>{{ photo.pic_event_date }}</td>
+                <td>
+                    <!-- add form n btn -->
+                    <a class="btn btn-sm btn-info ml-1" href="{{ url_for('edit_photo', photo_id=photo.id)}}">Edit</a>
+                    <form action="{{url_for('delete_photo', photo_id=photo.id)}}" method="POST" style="display: inline;">
+                        <button class="btn btn-sm btn-outline-danger ml-1" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <a href="/photos/add" class="btn btn-primary m-3">Add Photo</a>
+    <hr class="bg-primary my-4">
+</div>
+
+<!-- Work-History -->
+<div class="container mt-3">
+    <h3 class="text-muted mb-2">Work-History</h3>
+    <table class="table table-dark">
+        <thead class="thead bg-primary">
+            <th>Company Name</th>
+            <th>Position</th>
+            <th>Date</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for work in works %}
+            <tr>
+                <td>{{ work.company_name }}</td>
+                <td>{{ work.position }}</td>
+                <td>{{ work.work_start_date }} - {{ work.work_end_date }}</td>
+                <td>
+                    <!-- add form n btn -->
+                    <a class="btn btn-sm btn-info ml-1" href="{{ url_for('edit_work', work_id=work.id)}}">Edit</a>
+                    <form action="{{url_for('delete_work', work_id=work.id)}}" method="POST" style="display: inline;">
+                        <button class="btn btn-sm btn-outline-danger ml-1" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <a href="/work/add" class="btn btn-primary m-3">Add Work</a>
+    <hr class="bg-primary my-4">
+</div>
+
+<!-- Work-History -->
+<div class="container mt-3">
+    <h3 class="text-muted mb-2">Education</h3>
+    <table class="table table-dark">
+        <thead class="thead bg-primary">
+            <th>School Name</th>
+            <th>Major</th>
+            <th>Degree</th>
+            <th>Attended</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for school in schools %}
+            <tr>
+                <td>{{ school.school_name }}</td>
+
+                {% if school.major_name %}
+                <td>{{ school.major_name }}</td>
+                {% else %}
+                <td class="text-danger">NO MAJOR</td>
+                {% endif %}
+
+                {% if school.degree %}
+                <td>{{ school.degree }}</td>
+                {% else %}
+                <td class="text-danger">NO DEGREE</td>
+                {% endif %}
+
+                <td>{{ school.school_start_date }} - {{ school.school_end_date }}</td>
+                <td>
+                    <!-- add form n btn -->
+                    <a class="btn btn-sm btn-info ml-1" href="{{ url_for('edit_school', school_id=school.id)}}">Edit</a>
+                    <form action="{{url_for('delete_school', school_id=school.id)}}" method="POST" style="display: inline;">
+                        <button class="btn btn-sm btn-outline-danger ml-1" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <a href="/school/add" class="btn btn-primary m-3">Add Work</a>
+    <hr class="bg-primary my-4">
+</div>
+<!-- <div class="container">
+    <a href="/photos/add" class="btn btn-success m-3">Add Photo</a>
+</div> -->
+
+
+
+
+{% endblock %}
