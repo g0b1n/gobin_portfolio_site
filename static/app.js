@@ -48,74 +48,6 @@ function setupSmoothScrolling() {
     });
 }
 
-// Function to initialize and start the background image slideshow
-function startSlideshow() {
-    const images = document.querySelectorAll('#slideshow img');
-    let currentImageIndex = 0;
-
-    function nextImage() {
-        images[currentImageIndex].classList.remove('active');
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        images[currentImageIndex].classList.add('active');
-    }
-
-    setInterval(nextImage, 5000); // Change image every 5 seconds
-}
-
-// Function to load background images from the server
-// function loadBackgroundImages() {
-//     fetch('/get-background-images')
-//         .then(response => response.json())
-//         .then(images => {
-//             console.log("Images received:", images) // to check received images
-//             const bioTextDiv = document.querySelector('.my_bio_text');
-//             if(images.length > 0) {
-//                 // Set the first image as the background
-//                 bioTextDiv.style.backgroundImage = `url(${images[0]})`;
-//                 console.log("Backgroung set to:", images[0]); // To confirm the background is set
-
-//                 // Optional: To cycle through images
-//                 let currentImageIndex = 0;
-//                 setInterval(() => {
-//                     bioTextDiv.style.backgroundImage = `url(${images[currentImageIndex]})`;
-//                     currentImageIndex = (currentImageIndex + 1) % images.length;
-//                 }, 5000); // Change every 5 seconds
-//             }
-            
-//         });
-//         .catch(error => console.error('Error loading images:', error));
-// }
-
-function loadBackgroundImages() {
-    fetch('/get-background-images')
-        .then(response => response.json())
-        .then(images => {
-            if (images.length > 0) {
-                const bioTextDiv = document.querySelector('.my_bio_text');
-                let currentImageIndex = 0;
-
-                function updateBackgroundImage() {
-                    bioTextDiv.style.backgroundImage = `url(${images[currentImageIndex]})`;
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                }
-
-                // Initially set the background image
-                updateBackgroundImage();
-
-                // Change the background image every 5 seconds
-                setInterval(updateBackgroundImage, 5000);
-            }
-        })
-        .catch(error => console.error('Error loading images:', error));
-}
-
-
-// function loadBackgroundImages() {
-//     const bioTextDiv = document.querySelector('.my_bio_text');
-//     bioTextDiv.style.backgroundImage = "url('/images/totoApp.png')";
-// }
-
-
 
 
 // Centralized event listener for DOMContentLoaded
@@ -123,8 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animateBioText();
     animateAboutBelow();
     highlightNavLinks();
-    setupSmoothScrolling();
-    loadBackgroundImages();
 });
 
 

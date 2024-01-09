@@ -67,50 +67,6 @@ def test():
     return render_template('show/test.html')
 
 
-
-### ADD BG IMAGE FOR HOME PAGE IN HTML TEMPLATES ###
-@app.route('/uplode-background-image', methods=['GET', 'POST'])
-@login_required
-def upload_background_image():
-    form = AddBackgroundImageForm()
-
-    if form.validate_on_submit():
-        image_file = form.image.data
-        filename = secure_filename(image_file.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        image_file.save(filepath)
-
-        new_image = BackgroundImage(image_url=filepath)
-        db.session.add(new_image)
-        db.session.commit()
-        flash("Background image uploaded successfully", 'success')
-        return redirect(url_for('admin_dashboard'))
-
-    return render_template('admin/uplode-background_image.html', form=form)
-
-@app.route('/get-background-images')
-def get_background_images():
-
-    images = BackgroundImage.query.order_by(BackgroundImage.uploaded_at.desc()).all()
-    image_urls = [url_for('static', filename=image.image_url.replace('/static/', '')) for image in images]
-    return jsonify(image_urls)
-
-
-## DELETE BG IMAGE 
-@app.route('/delete-background-image/<int:image_id>', methods=['POST'])
-@login_required
-def delete_background_image(image_id):
-
-    image = BackgroundImage.query.get_or_404(image_id)
-    
-    db.session.delete(image)
-    db.session.commit()
-    flash("Background image deleted", 'success')
-    
-    return redirect(url_for('admin_dashboard'))
-
-
-
 #### ADMIN LOGIN PAGE ###
 
 @app.route('/create-admin', methods=['GET', 'POST'])
