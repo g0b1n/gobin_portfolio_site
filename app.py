@@ -12,7 +12,10 @@ from forms import CreateAdminForm, AdminLoginForm, AddProjectForm, EditProjectFo
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'myPortfolio_site'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///gobin_db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///gobin_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+# postgres://gobindahalportfolio_user:0A0BLOsybCsQMztMosVykx8wZgCchdrh@dpg-cmennqicn0vc73brg5ag-a.oregon-postgres.render.com/gobindahalportfolio
+
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
@@ -61,6 +64,7 @@ def index_page():
 @app.route('/test')
 def test():
     return render_template('show/test.html')
+
 
 #### ADMIN LOGIN PAGE ###
 

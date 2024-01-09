@@ -255,3 +255,11 @@ footer {
 .active {
     color: #4a93ff; /* or any other style to highlight the active link */
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.fadeIn {
+    animation: fadeIn 1s ease-in-out;
+}
