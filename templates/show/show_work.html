@@ -1,0 +1,30 @@
+<!-- projects.html -->
+{% extends 'base.html' %}
+{% block title %}Work History{% endblock %}
+{% block content %}
+
+
+<div class="container mt-5">
+        <div class="mt-5">
+            <p class="my_title_txt"><span class="pipe">|</span>Work History</p>
+            
+            {% for work in works %}
+                <div class="mt-5">
+                    <h4 class="my_work_title">
+                        <p>{{ work.company_name }}</p>
+                    </h4>
+                        
+                    <p class="card-subtitle work_address">{{ work.address }}</p>
+                    <p class="subtitle work_address">{{ work.company_ph }}</p>
+                    <p class="text-white"><b class="work_desc mr-2">Position:</b> {{ work.position }}</p>
+                    <p class="text-white"><b class="work_desc mr-2">Date:</b> {{ work.work_start_date }} - {{ work.work_end_date }}</p>
+                    <h4><b class="work_desc">Job Description</b></h4>
+                    <p class="text-white">{{ work.work_long_desc }}</p>
+
+                </div>
+            {% endfor %}
+        </div>
+
+</div>
+
+{% endblock %}

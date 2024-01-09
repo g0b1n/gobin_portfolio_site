@@ -1,0 +1,31 @@
+{% extends 'admin/admin_base.html' %}
+{% block title %}Govinda Dahal{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h2>Background Images for Home Page</h2>
+
+    <!-- Upload Image Form -->
+    <form action="{{ url_for('upload_background_image') }}" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.image.label }} {{ form.image }}
+        </div>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    <!-- Display Uploaded Images -->
+    <div>
+        <h3>Uploaded Images</h3>
+        {% for image in images %}
+        <div class="image-container">
+            <img src="{{ url_for('static', filename=image.image_url) }}" alt="Background Image">
+            <form action="{{ url_for('delete_background_image', image_id=image.id) }}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
