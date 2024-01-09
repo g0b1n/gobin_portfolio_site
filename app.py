@@ -68,37 +68,37 @@ def test():
 
 #### ADMIN LOGIN PAGE ###
 
-@app.route('/create-admin', methods=['GET', 'POST'])
-# @login_required
-def create_admin():
-    """Renders and submits a form to create admin"""
+# @app.route('/create-admin', methods=['GET', 'POST'])
+# # @login_required
+# def create_admin():
+#     """Renders and submits a form to create admin"""
 
-    form = CreateAdminForm()
+#     form = CreateAdminForm()
 
-    if form.validate_on_submit():
-        first_name = form.first_name.data
-        last_name = form.last_name.data
-        email = form.email.data
-        username = form.username.data
-        password = form.password.data
-        pin = form.pin.data
+#     if form.validate_on_submit():
+#         first_name = form.first_name.data
+#         last_name = form.last_name.data
+#         email = form.email.data
+#         username = form.username.data
+#         password = form.password.data
+#         pin = form.pin.data
 
-        admin = AdminUser.register(first_name, last_name, email, username, password, pin)
+#         admin = AdminUser.register(first_name, last_name, email, username, password, pin)
 
-        db.session.add(admin)
+#         db.session.add(admin)
 
-        try:
-            db.session.commit()
-        except IntegrityError:
-            form.username.errors.append('Username already exist, please choose another username')
-            return render_template('admin/create-admin.html', form=form)
+#         try:
+#             db.session.commit()
+#         except IntegrityError:
+#             form.username.errors.append('Username already exist, please choose another username')
+#             return render_template('admin/create-admin.html', form=form)
         
-        session['admin_users_id'] = admin.id
+#         session['admin_users_id'] = admin.id
 
-        flash(f'{admin}, Successfully Created Your Account!!', 'success')
-        return redirect(url_for('home_page')) #later i will change it to redirect them to the userprofile page
+#         flash(f'{admin}, Successfully Created Your Account!!', 'success')
+#         return redirect(url_for('home_page')) #later i will change it to redirect them to the userprofile page
     
-    return render_template('admin/create-admin.html', form=form)
+#     return render_template('admin/create-admin.html', form=form)
 
 
 
