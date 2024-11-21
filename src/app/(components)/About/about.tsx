@@ -14,7 +14,7 @@ function About() {
           className='rounded-lg shadow-lg'
           width={300}
           height={300}
-          objectFit='cover'
+          style={{objectFit: "cover"}}
           />
         </div>
 

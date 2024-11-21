@@ -2,7 +2,13 @@
 import React, { useState } from 'react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
+
+
 const Contact = () => {
+
+  const [status, setStatus] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -10,7 +16,8 @@ const Contact = () => {
     message: '',
   });
 
-  const [status, setStatus] = useState('');
+  const validateEmail = (email: string): boolean => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,10 +25,17 @@ const Contact = () => {
       ...prevData,
       [name]: value,
     }));
+
+    if (name === "email" && !validateEmail(value)) {
+    setStatus("Invalid email address.")
+  } else {
+    setStatus("");
+  }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true)
     console.log("Form Data Submitted: ", formData);
     
     try {
@@ -42,6 +56,8 @@ const Contact = () => {
     } catch (error) {
       console.error(`Error sending message:`, error);
       setStatus(`Something went wrong.`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -142,9 +158,9 @@ const Contact = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-blue-200 text-gray-900 font-bold py-2 px-4 rounded-md hover:bg-blue-700 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              className={`w-full py-2 px-4 rounded-md font-bold ${isLoading ? 'bg-gray-400' : 'bg-blue-200 hover:bg-blue-700'}`}
             >
-              Submit
+              {isLoading ? 'Submitting...' : 'Submit'}
             </button>
           </form>
         </div>
