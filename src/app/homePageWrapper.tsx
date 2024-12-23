@@ -1,6 +1,6 @@
 "use client"
 
-import Navbar from '@/app/(components)/Navbar/navbar';
+import Navbar from '@/components/Navbar/navbar';
 import React, { useEffect } from 'react'
 import StoreProvider, { useAppSelector } from './redux';
 
@@ -17,7 +17,7 @@ const HomePageLayout = ({ children } : {children: React.ReactNode}) => {
   })
 
   return (
-    <div className={`${isDarkMode ? "dark" : "light"} flex bg-gray-50 text-gray-900 w-full min-h-screen`}>
+    <div className={`${isDarkMode ? "dark" : "light"} pt-16 flex bg-gray-50 text-gray-900 w-full min-h-screen`}>
         <main className='w-full h-full'>
             <Navbar />
             { children }

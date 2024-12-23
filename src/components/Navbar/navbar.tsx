@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Lock } from "lucide-react";
 import { useAppDispatch, useAppSelector } from '@/app/redux';
 import { setIsDarkMode } from '@/app/state';
+import Link from 'next/link'
 
 function Navbar() {
     const dispatch = useAppDispatch();
@@ -29,11 +30,21 @@ function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6">
-                        <a href="#home" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#about" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#projects" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="#techstacks" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">Tech Stacks</a>
-                        <a href="#contact" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        <Link href="/"className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                            Home
+                        </Link>
+                        <Link href="/about" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                            About
+                        </Link>
+                        <Link href="/projects" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                            Projects
+                        </Link>
+                        <Link href="/techstacks" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                            Tech Stacks
+                        </Link>
+                        <Link href="/contact" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                           Contact
+                        </Link>
 
                         {/* Dark Mode Toggle */}
                         <button onClick={toggleDarkMode} className="ml-4">
@@ -43,6 +54,13 @@ function Navbar() {
                                 <Sun className="cursor-pointer text-gray-900 hover:bg-blue-200 rounded-md px-1 py-1" size={30} />
                             )}
                         </button>
+                        <Link href="/admindashboard">
+                            <button className="px-3 py-2 text-sm font-medium flex items-center space-x-2 hover:bg-blue-200 rounded-md">
+                                <Lock className='px-1 py-1 text-red-500' size={24}/>
+                                <span className='text-red-500'>Admin</span>
+                            </button>
+                         </Link>
+
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -83,19 +101,29 @@ function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden" id="mobile-menu">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        <a href="#home" onClick={toggleMenu} className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Home</a>
-                        <a href="#about" onClick={toggleMenu} className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">About</a>
-                        <a href="#projects" onClick={toggleMenu} className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                        <a href="#techstacks" onClick={toggleMenu} className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Tech Stacks</a>
-                        <a href="#contact" onClick={toggleMenu} className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
-                    </div>
-                </div>
-            )}
-        </nav>
-    );
+      {isOpen && (
+        <div className="md:hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <Link href="/" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Home
+            </Link>
+            <Link href="/about" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              About
+            </Link>
+            <Link href="/projects" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Projects
+            </Link>
+            <Link href="/techstacks" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Tech Stacks
+            </Link>
+            <Link href="/contact" className="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium">
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
 }
 
 export default Navbar;
