@@ -32,7 +32,7 @@ const TechStacks = () => {
         
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-8">
           {techStacks.map((tech, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+            <div key={index} className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center hover:bg-gray-100 transform hover:rotate-6 transition-transform duration-300 ease-in-out">
               {tech.icon || (
                 <div className="text-4xl text-gray-700 font-bold">
                   {tech.name.charAt(0)}

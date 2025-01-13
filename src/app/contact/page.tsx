@@ -49,7 +49,15 @@ const Contact = () => {
 
       const result = await response.json();
       if (response.ok) {
-        setStatus(`Message send successfully!`);
+        setStatus(`Message sent Successfully!`);
+
+        // clear the input fields
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          message: '',
+        })
       } else {
         setStatus(result.message || `Something went wrong.`);
       }
@@ -158,10 +166,21 @@ const Contact = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className={`w-full py-2 px-4 rounded-md font-bold ${isLoading ? 'bg-gray-400' : 'bg-blue-200 hover:bg-blue-700'}`}
+              className={`w-full py-2 px-4 rounded-md font-bold ${isLoading ? 'bg-gray-400' : 'border border-gray-900 text-gray-900 hover:bg-blue-200 hover:border-blue-200'}`}
             >
               {isLoading ? 'Submitting...' : 'Submit'}
             </button>
+            <div>
+              {status && (
+                <p 
+                  className={`text-center mb-4 font-semibold ${
+                    status.includes('Successfully') ? 'text-green-500' : 'text-red-500'
+                  }`}
+                >
+                  {status}
+                </p>
+              )}
+            </div>
           </form>
         </div>
       </div>

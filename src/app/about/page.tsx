@@ -7,7 +7,7 @@ function About() {
    <div id='about' className="flex flex-col items-center justify-center min-h-screen p-6">
       <div className="container mx-auto flex flex-col lg:flex-row items-center">
         {/* Profile Image */}
-        <div className="w-full lg:w-1/3 mb-6 lg:mb-0 flex justify-center">
+        <div className="w-full lg:w-1/3 mb-6 lg:mb-0 flex justify-center transform hover:rotate-3 transition-transform duration-300 ease-in-out">
           <Image 
           src={myPic}
           alt='Profile Image'

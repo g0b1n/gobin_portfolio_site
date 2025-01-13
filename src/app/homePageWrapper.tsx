@@ -1,20 +1,14 @@
 "use client"
 
-import Navbar from '@/components/Navbar/navbar';
 import React, { useEffect } from 'react'
-import StoreProvider, { useAppSelector } from './redux';
+import Navbar from '@/components/Navbar/navbar';
+import { useDarkMode } from '@/context/DarkModeContext';
+
+
 
 const HomePageLayout = ({ children } : {children: React.ReactNode}) => {
 
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.add("light")
-    }
-  })
+  const { isDarkMode } = useDarkMode();
 
   return (
     <div className={`${isDarkMode ? "dark" : "light"} pt-16 flex bg-gray-50 text-gray-900 w-full min-h-screen`}>
@@ -28,9 +22,7 @@ const HomePageLayout = ({ children } : {children: React.ReactNode}) => {
 
 const HomePageWrapper = ({ children } : {children: React.ReactNode}) => {
   return (
-    <StoreProvider>
       <HomePageLayout>{ children }</HomePageLayout>
-    </StoreProvider>
   )
 }
 

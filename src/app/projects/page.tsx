@@ -46,7 +46,7 @@ function Projects() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="bg-white shadow-lg rounded-lg p-6">
+            <div key={project.id} className="bg-white shadow-lg rounded-lg p-6 hover:bg-gray-200 transform hover:rotate-1 transition-transform duration-300 ease-in-out">
               <h2 className="text-2xl font-bold mb-3">{project.title}</h2>
               <p className="text-lg text-gray-700 mb-4">{project.description}</p>
               <div className="mb-4">

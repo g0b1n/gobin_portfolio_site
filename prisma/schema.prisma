@@ -13,9 +13,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  email         String?   @unique
+  emailVarified DateTime?
+  image         String?
+
+  role UserRole @default(USER)
+}
+
 model Project {
   id          Int      @id @default(autoincrement())
   title       String
+  image       String?
   description String
   liveDemo    String?
   githubLink  String?
@@ -24,3 +40,8 @@ model Project {
   updatedAt   DateTime @updatedAt
 }
 
+model TechStack {
+  id    Int     @id @default(autoincrement())
+  name  String
+  image String?
+}

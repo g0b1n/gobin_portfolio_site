@@ -31,7 +31,6 @@ const HomePage = () => {
         Resumé
       </button>
       </section>
-
     </div>
   );
 };
