@@ -25,7 +25,10 @@ const EditProjectDialog: React.FC<EditProjectDialogProps> = ({
     if (!isOpen || !formData) return null;
 
     const handleChange = (field: keyof Project, value: string | string[]) => {
-        setFormData((prev) => ({ ...prev, [field]: value}));
+        setFormData((prev) => {
+          if (!prev) return null;
+          return { ...prev, [field]: value}
+        });
     };
 
     const handleSubmit = (e: React.FormEvent) => {
