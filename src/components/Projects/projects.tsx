@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import EditProjectDialog from './EditProject';
 import CreateProjectDialog from './createProject';
-import { Project } from '@/types/Project'
+import type { Project } from '@/types/Project'
 
 function Projects() {
 
