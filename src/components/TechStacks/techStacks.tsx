@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import { TechStack } from '@types/TechStack';
+import { TechStack } from '@/types/TechStack';
 
 function TechStacks() {
 
