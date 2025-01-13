@@ -82,7 +82,7 @@ const Contact = () => {
           {/* Add GitHub and LinkedIn icons */}
           <div className="flex space-x-6 mt-8">
             <a
-              href="https://www.linkedin.com/in/your-profile"
+              href="https://www.linkedin.com/in/govinda-dahal-b07a79229/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600"
@@ -90,7 +90,7 @@ const Contact = () => {
               <FaLinkedin size={40} />
             </a>
             <a
-              href="https://github.com/your-profile"
+              href="https://github.com/g0b1n"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900"
