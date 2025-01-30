@@ -32,19 +32,19 @@ function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6">
-                        <Link href="/"className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                        <Link href="/"className="hover:bg-blue-200 px-3 py-3 rounded-md text-sm font-medium">
                             Home
                         </Link>
-                        <Link href="/about" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                        <Link href="/about" className="hover:bg-blue-200 px-3 py-3 rounded-md text-sm font-medium">
                             About
                         </Link>
-                        <Link href="/projects" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                        <Link href="/projects" className="hover:bg-blue-200 px-3 py-3 rounded-md text-sm font-medium">
                             Projects
                         </Link>
-                        <Link href="/techstacks" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                        <Link href="/techstacks" className="hover:bg-blue-200 px-3 py-3 rounded-md text-sm font-medium">
                             Tech Stacks
                         </Link>
-                        <Link href="/contact" className="hover:bg-blue-200 px-3 py-2 rounded-md text-sm font-medium">
+                        <Link href="/contact" className="hover:bg-blue-200 px-3 py-3 rounded-md text-sm font-medium">
                            Contact
                         </Link>
 
