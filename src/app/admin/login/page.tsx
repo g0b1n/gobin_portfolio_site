@@ -23,7 +23,7 @@ export default function LoginPage() {
       setError("Invalid credentials. Please try again.");
     } else {
       // Successful login, redirect to the admin dashboard (or home)
-      router.push("/admin");
+      router.push("/admindashboard");
     }
   };
 
