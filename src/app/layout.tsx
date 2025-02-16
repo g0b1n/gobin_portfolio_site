@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import SessionProviderWrapper from "./SessionProviderWrapper";
 import "./globals.css";
 import HomePageWrapper from "./homePageWrapper";
 import { DarkModeProvider } from "@/context/DarkModeContext";
@@ -29,10 +28,8 @@ export default function RootLayout({
       </head> */}
       <body className={inter.className}>
         <DarkModeProvider>
-          <SessionProviderWrapper>
             <HomePageWrapper>{children}</HomePageWrapper>
-          </SessionProviderWrapper>
-        </DarkModeProvider>
+          </DarkModeProvider>
       </body>
     </html>
   )

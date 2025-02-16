@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import myPic from '@/app/images/myPic.jpg'
+
 
 function About() {
   return (
@@ -9,7 +9,7 @@ function About() {
         {/* Profile Image */}
         <div className="w-full lg:w-1/3 mb-6 lg:mb-0 flex justify-center transform hover:rotate-3 transition-transform duration-300 ease-in-out">
           <Image 
-          src={myPic}
+          src="/images/myPic.jpg"
           alt='Profile Image'
           className='rounded-lg shadow-lg'
           width={300}

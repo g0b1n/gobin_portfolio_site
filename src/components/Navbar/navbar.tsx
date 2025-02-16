@@ -4,23 +4,15 @@ import React, { useState } from 'react';
 import { Sun, Moon, Lock } from "lucide-react";
 import { useDarkMode } from '@/context/DarkModeContext';
 import Link from 'next/link'
-import { signOut, useSession } from 'next-auth/react';
 import { FaGithub } from 'react-icons/fa'
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const { isDarkMode, toggleDarkMode } = useDarkMode();
-    const { data: session, status } = useSession();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
-    const handleLogout = () => {
-       signOut({
-        callbackUrl: "/"
-       })
-    }
 
     return (
         <nav className="bg-gray-100 text-gray-900 fixed top-0 left-0 w-full z-50 shadow-md">
@@ -57,32 +49,16 @@ function Navbar() {
                                 <Sun className="cursor-pointer text-gray-900 hover:bg-blue-200 rounded-md px-1 py-1 active:bg-blue-300" size={30} />
                             )}
                         </button>
-                       
-                       {status === 'authenticated' ? (
-                        <div className='flex'>
-                            <Link href="/admindashboard">
-                        <button className='px-3 py-2 text-sm font-medium flex items-center space-x-2 hover:bg-blue-200 rounded-md text-blue-500 hover:text-gray-900 active:bg-blue-300'>
-                            Admin Dashboard
-                        </button>
-                        </Link>
-                        <button className='px-3 py-2 text-sm font-medium flex items-center space-x-2 hover:bg-red-200 rounded-md text-red-500 hover:text-gray-900 active:bg-red-300' 
-                            onClick={handleLogout}
-                        >
-                            Sign Out
-                        </button>
-                        
-                        
-                        </div>
-                       ) : (
+
                         <Link href="https://github.com/g0b1n" target='_blank'>
                             <button className="px-3 py-2 text-sm font-medium flex items-center space-x-2 rounded-md hover:text-gray-500 active:bg-gray-300">
                                 <FaGithub size={24} />
                             </button>
                          </Link>
-
-                       )}
-            
-                    </div>
+                       </div>   
+                        
+                    
+                    
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden">
@@ -140,21 +116,6 @@ function Navbar() {
             <Link href="/contact" className="hover:bg-blue-500 hover:text-gray-100 block px-3 py-2 rounded-md text-base font-medium">
               Contact
             </Link>
-
-            {status === 'authenticated' ? (
-                        <button className='hover:bg-red-500 text-red-500 hover:text-gray-900 block px-3 py-2 rounded-md font-medium' 
-                            onClick={handleLogout}
-                        >
-                            Sign Out
-                        </button>
-                       ) : (
-                        <Link href="/admindashboard">
-                            <button className="hover:bg-red-500 hover:text-gray-100 block px-3 py-2 text-base rounded-md font-medium">
-                                <Lock className='px-1 py-1 text-red-500' size={24}/>
-                                <span className='text-red-500'>Admin</span>
-                            </button>
-                         </Link>
-                       )}
           </div>
         </div>
       )}

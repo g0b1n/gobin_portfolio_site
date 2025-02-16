@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Portfolio Website",
+    "image": "/images/portfolio.png",
+    "description": "A Next.js-powered personal portfolio site.",
+    "liveDemo": "https://govindahal.com",
+    "githubLink": "https://github.com/g0b1n/gobin_portfolio_site",
+    "tags": ["Next.js", "TailwindCSS"]
+  },
+  {
+    "id": 2,
+    "title": "BC2P",
+    "image": "/images/ecommerce.png",
+    "description": "Under the direction of experienced software engineers, I am collaborating with a fantastic team of like-minded individuals to create a learning platform whose goals are to empower people, improve community integration, promote mental health and well-being, and make resources easier to access. It is an online platform designed to assist people of all ages, from young children to elderly individuals, with tools and information",
+    "liveDemo": "https://bc2p.org",
+    "tags": ["Next.js", "Prisma ORM", "PostgreSQL", "TailwindCSS"]
+  },
+  {
+    "id": 3,
+    "title": "Journal App",
+    "image": "/images/ecommerce.png",
+    "description": "A modern social media app. Still under development",
+    "liveDemo": "https://myecommerce.com",
+    "githubLink": "https://github.com/myecommerce",
+    "tags": ["Next.js", "Prisma ORM", "PostgreSQL", "TailwindCSS"]
+  },
+  {
+    "id": 4,
+    "title": "Capstone 1",
+    "image": "/images/portfolio.png",
+    "description": "Site developed using React",
+    "liveDemo": "https://myportfolio.com",
+    "githubLink": "https://github.com/myrepo",
+    "tags": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "id": 5,
+    "title": "Capstone 2",
+    "image": "/images/ecommerce.png",
+    "description": "Site developed using React",
+    "liveDemo": "https://myecommerce.com",
+    "githubLink": "https://github.com/myecommerce",
+    "tags": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "id": 6,
+    "title": "Bloggy",
+    "image": "/images/portfolio.png",
+    "description": "Site developed using React",
+    "liveDemo": "https://myportfolio.com",
+    "githubLink": "https://github.com/myrepo",
+    "tags": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "id": 7,
+    "title": "FutBall App",
+    "image": "/images/ecommerce.png",
+    "description": "Site developed using React",
+    "liveDemo": "https://myecommerce.com",
+    "githubLink": "https://github.com/myecommerce",
+    "tags": ["HTML", "CSS", "JavaScript"]
+  },
+  {
+    "id": 8,
+    "title": "MviDB (Movie Database)",
+    "image": "/images/portfolio.png",
+    "description": "Site developed using React",
+    "liveDemo": "https://myportfolio.com",
+    "githubLink": "https://github.com/myrepo",
+    "tags": ["HTML", "CSS", "JavaScript"]
+  }
+]
